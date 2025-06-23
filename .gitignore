@@ -1,0 +1,41 @@
+# Byte-compiled / package files
+__pycache__/
+*.py[cod]
+.Python
+*.so
+
+# Virtualenv / Conda
+env/
+venv/
+*.env
+conda_env.yml
+
+# Temporary files
+.DS_Store
+*.tmp
+*.swp
+*.swo
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# Docker files
+*.dockerfile
+docker-compose.yml
+
+# Micromamba cache
+.micromamba/
+pkgs/
+
+# Logs and debugging files
+logs/
+*.log
+wandb/
+
+# Trash
+.Trash*

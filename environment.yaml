@@ -1,0 +1,14 @@
+name: guild-assistant
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - gradio
+  - langchain
+  - openai
+  - chromadb
+  - weaviate-client
+  - rdflib
+  - pandas
+  - scikit-learn
+  - jupyterlab

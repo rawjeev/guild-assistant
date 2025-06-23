@@ -1,0 +1,10 @@
+gradio
+langchain
+langchain-openai
+langchain-community
+chromadb
+weaviate-client
+rdflib
+pandas
+scikit-learn
+jupyter
