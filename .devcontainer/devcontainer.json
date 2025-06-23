@@ -3,16 +3,17 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "remoteUser": "mambauser",
+  "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-python.python",
         "ms-toolsai.jupyter",
         "redhat.vscode-yaml",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker"
       ]
     }
-  },
-  "remoteUser": "mambauser",
-  "workspaceFolder": "/workspace"
+  }
 }
