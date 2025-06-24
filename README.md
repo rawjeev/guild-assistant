@@ -11,22 +11,18 @@
 
 ## Project Description
 
-A tool that helps design native plant guilds for ecological restoration, agroforestry, and permaculture. It combines **LLMs**, **RAG (Retrieval-Augmented Generation)**, **Semantic Web Knowledge Graphs**, and **ML-based recommendations** — built with modern AI engineering patterns to reason about combinations of flora for specific ecoregions, climates, and goals.
+A tool that helps design native plant guilds for ecological restoration, agroforestry, and permaculture. It combines **LLMs**, **RAG (Retrieval-Augmented Generation)**, **Semantic Web Knowledge Graphs**, and **ML-based recommendations** — built with modern AI engineering patterns to reason about combinations of flora and fauna for specific ecoregions, climates, and goals.
 
----
+## Motivation
 
-## 🌱 Project Motivation
-
-Ecological guilds — combinations of flora and fauna that support each other — are core to permaculture design, agro-ecology and ecological conservation.
-Designing guilds that are *adapted to specific climates, soils, and human needs* is difficult and time-consuming, even for experienced practitioners.  
-With over **382,000 species of plants** and **867 terrestrial ecoregions worldwide**, selecting species that work well together requires integrating vast and diverse knowledge.
+**Ecological guilds** — combinations of flora and fauna that support each other — are core to agro-ecosystems of many tribal peoples and indigenous communities all over the world, and more recently to permaculture design, agro-ecology and ecological conservation. With over **382,000 species of plants** and **867 terrestrial ecoregions worldwide**, selecting species that work well together, *adapted to specific climates, soils, and human needs* requires integrating vast and diverse knowledge. An assistive tool to help the process is very beneficial. 
 
 ## Project Goals
 
 Guild Assistant aims to be a **conversational design companion** that helps permaculture designers and conservationists:
 - Explore species options for their location
 - Understand ecological interactions
-- Generate guilds adapted to local context and client goals
+- Generate guilds adapted to local context and human needs
 - Learn as they interact with the system
 
 ## Learning and Capstone Goals
