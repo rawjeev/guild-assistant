@@ -3,12 +3,30 @@ channels:
   - conda-forge
 dependencies:
   - python=3.11
-  - gradio
-  - langchain
-  - openai
-  - chromadb
-  - weaviate-client
-  - rdflib
+  - numpy
   - pandas
+  - matplotlib
+  - seaborn
   - scikit-learn
   - jupyterlab
+  - jupyterlab-lsp
+  - jupyterlab-git
+  - ipywidgets
+  - nodejs
+  - pip
+  - pip:
+      - langchain
+      - langgraph
+      - langchainhub
+      - langchain-openai
+      - chromadb
+      - weaviate-client
+      - SPARQLWrapper
+      - transformers
+      - peft
+      - bitsandbytes
+      - sentence-transformers
+      - faiss-cpu
+      - python-lsp-server[all]
+      - python-lsp-jsonrpc
+      - rdflib

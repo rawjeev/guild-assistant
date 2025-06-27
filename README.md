@@ -4,7 +4,6 @@
   <img src="assets/banner.png" alt="Guild Assistant — Conversational Ecological Guild Designer" />
 </p>
 
-
 **Guild Assistant** is a Conversational AI tool that helps design ecologically sound and site-specific life guilds.
 
 ---
@@ -48,6 +47,86 @@ This is also a **Capstone project** with these goals:
 - **Development:** Python 3.11, Micromamba, Docker / Dev Container, VS Code
 
 ---
+
+## ⚙️ Dev Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+
+| Tool          | Purpose                               | Install Link / Command                          |
+|---------------|----------------------------------------|--------------------------------------------------|
+| [Docker](https://www.docker.com/) | Containerization engine              | [Install Docker](https://docs.docker.com/get-docker/) |
+| [Just](https://github.com/casey/just) | Task runner for common dev tasks    | `brew install just` (macOS) or follow [install guide](https://github.com/casey/just#installation) |
+| (Optional) [VS Code](https://code.visualstudio.com/) | IDE with DevContainer integration  | [Install VS Code](https://code.visualstudio.com/) |
+| (Optional) Dev Containers Extension | Enables DevContainer support in VS Code | [Install Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) |
+
+---
+
+## 🚀 Development Environment Setup
+
+This project uses Docker + Dev Containers for a consistent, reproducible setup.
+
+### ✅ Option 1: VS Code (Recommended)
+
+1. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+2. Open this project folder in VS Code.
+3. Run **"Reopen in Container"** when prompted.
+
+VS Code will automatically:
+- Pull and use the `ai-thin-crust` image (prebuilt dev base)
+- Mount your project code at `/workspace`
+- Use a persistent Docker volume for installed Python packages
+- Run `pip install -r requirements.txt` to install project-specific dependencies
+
+You can also use `just` commands inside VS Code’s terminal, such as:
+
+```bash
+just install
+just shell
+just jupyter
+```
+
+---
+
+### 💻 Option 2: Any Terminal / Other IDEs (e.g., Zed, JetBrains)
+
+1. Ensure Docker and Just are installed.
+2. Launch the container manually:
+
+```bash
+just up
+```
+
+3. Access the container shell:
+
+```bash
+just shell
+```
+
+4. Install Python dependencies:
+
+```bash
+just install
+```
+
+## 📦 Managing Python Dependencies
+
+This project uses a two-file system to manage Python dependencies:
+
+- `requirements.in`: Human-editable list of desired packages
+- `requirements.txt`: Fully resolved and pinned versions (auto-generated)
+
+### 🔄 To update dependencies:
+
+1. Modify `requirements.in` as needed
+2. Run:
+
+```bash
+just freeze
+```
+
+This will regenerate `requirements.txt` using `pip-compile` (inside the container).
+
+⚠️ **Do not edit `requirements.txt` manually.**
 
 ## 📚 Topics
 

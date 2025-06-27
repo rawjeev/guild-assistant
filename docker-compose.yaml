@@ -1,0 +1,13 @@
+services:
+  dev:
+    image: rawjeev/ai-thin-crust:2025-06a
+    volumes:
+      - .:/workspace
+      - pydeps:/opt/conda
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    command: bash
+
+volumes:
+  pydeps:

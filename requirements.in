@@ -1,0 +1,19 @@
+# === Knowledge Graph & RDF ===
+rdflib
+SPARQLWrapper
+
+# === LangChain Ecosystem ===
+langchain
+langgraph
+langchainhub
+langchain-openai
+chromadb
+weaviate-client
+
+# === LLM & Model Ecosystem ===
+peft
+bitsandbytes
+
+# === Dev tools & LSP ===
+python-lsp-server[all]
+python-lsp-jsonrpc
