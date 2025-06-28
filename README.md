@@ -4,7 +4,7 @@
   <img src="assets/banner.png" alt="Guild Assistant — Conversational Ecological Guild Designer" />
 </p>
 
-**Guild Assistant** is a Conversational AI tool that helps design ecologically sound and site-specific life guilds.
+**Guild Assistant** is a Conversational AI tool to help design ecologically sound and site-specific **Life guilds**.
 
 ---
 
@@ -14,7 +14,7 @@ A tool that helps design native plant guilds for ecological restoration, agrofor
 
 ## Motivation
 
-**Ecological guilds** — combinations of flora and fauna that support each other — are core to agro-ecosystems of many tribal peoples and indigenous communities all over the world, and more recently to permaculture design, agro-ecology and ecological conservation. With over **382,000 species of plants** and **867 terrestrial ecoregions worldwide**, selecting species that work well together, *adapted to specific climates, soils, and human needs* requires integrating vast and diverse knowledge. An assistive tool to help the process is very beneficial. 
+**Ecological guilds** — combinations of flora and fauna that thrive together are a core element of ecosystems. They have been key to agro-ecosystems of many tribal peoples and indigenous communities all over the world, and more recently to permaculture design and ecological conservation. With over **382,000 species of plants** and **867 terrestrial ecoregions worldwide**, selecting species that work well together, *adapted to specific climates, soils, and human needs* requires integrating vast and diverse knowledge. An assistive tool to help the process is very beneficial.
 
 ## Project Goals
 
@@ -58,6 +58,10 @@ Before you begin, ensure you have the following installed on your system:
 | [Just](https://github.com/casey/just) | Task runner for common dev tasks    | `brew install just` (macOS) or follow [install guide](https://github.com/casey/just#installation) |
 | (Optional) [VS Code](https://code.visualstudio.com/) | IDE with DevContainer integration  | [Install VS Code](https://code.visualstudio.com/) |
 | (Optional) Dev Containers Extension | Enables DevContainer support in VS Code | [Install Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) |
+
+> **Note**: `just` is a developer tool and must be run from your host system (outside the container).
+> 
+> It helps manage container tasks, environment setup, and project workflows. You do **not** need to install or run `just` inside the container.
 
 ---
 
