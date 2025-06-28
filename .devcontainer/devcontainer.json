@@ -1,13 +1,10 @@
 {
   "name": "Guild Assistant DevContainer",
-  "image": "rawjeev/ai-thin-crust:2025-06a",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "dockerComposeFile": ["../docker-compose.yaml"],
+  "service": "guild-assistant-dev",
   "workspaceFolder": "/workspace",
-  "mounts": [
-    "source=pydeps,target=/opt/conda,type=volume"
-  ],
-  "postCreateCommand": "pip install --upgrade --no-cache-dir -r requirements.txt",
   "remoteUser": "mambauser",
+  "postCreateCommand": "pip install --upgrade --no-cache-dir -r requirements.txt",
   "customizations": {
     "vscode": {
       "extensions": [

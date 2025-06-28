@@ -69,13 +69,13 @@ This project uses Docker + Dev Containers for a consistent, reproducible setup.
 
 1. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 2. Open this project folder in VS Code.
-3. Run **"Reopen in Container"** when prompted.
+3. Run `Dev Containers: Reopen in Container`.
 
 VS Code will automatically:
 - Pull and use the `ai-thin-crust` image (prebuilt dev base)
 - Mount your project code at `/workspace`
 - Use a persistent Docker volume for installed Python packages
-- Run `pip install -r requirements.txt` to install project-specific dependencies
+- Run `pip install --upgrade -r requirements.txt` to install project-specific dependencies
 
 You can also use `just` commands inside VS Code’s terminal, such as:
 
@@ -127,6 +127,28 @@ just freeze
 This will regenerate `requirements.txt` using `pip-compile` (inside the container).
 
 ⚠️ **Do not edit `requirements.txt` manually.**
+
+## Environment variables
+
+This project uses a .env file to configure environment-specific values for Docker Compose, just automatically loads the variables set in .env file. As a developer you can have your own .env file in the base folder of the project.
+
+### 🔹 Step 1: Create your .env
+
+Copy the provided .env.example file to .env if it doesn't already exist:
+```bash
+just init-env
+```
+Edit .env as needed:
+```bash
+DOCKER_TAG=2025-06a
+CONTAINER_NAME=guild-assistant-dev
+```
+.env is auto-loaded by both Docker Compose and VS Code DevContainers when you launch the environment.
+
+### 🔒 Note:
+
+- .env should not be committed to version control.
+-	Add it to your .gitignore if it’s not already listed: ```.env```
 
 ## 📚 Topics
 

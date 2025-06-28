@@ -3,8 +3,8 @@ set shell := ["bash", "-cu"]
 set dotenv-load
 
 # Edit this to match your container service name in docker-compose.yml
-CONTAINER := 'dev'
-ENV_NAME := 'base'
+CONTAINER := env_var("CONTAINER_NAME")
+PY_ENV_NAME := 'base'
 
 # Show summary by default
 default:
@@ -12,9 +12,15 @@ default:
 
 # 📊 Print environment vars
 show-env:
-  env | grep -E 'PROJECT_NAME|DOCKER_TAG'
+  env | grep -E 'PROJECT_NAME|DOCKER_TAG|CONTAINER_NAME|PY_ENV_NAME'
 
-# ---------------------------------------------
+# Justfile for guild-assistant
+
+# Copy .env.example to .env if .env does not exist
+init-env:
+    @if [ ! -f .env ]; then cp .env.example .env && echo ".env initialized from .env.example"; else echo ".env already exists"; fi
+
+# -------------------------------------------
 # 🚀 Docker
 # ---------------------------------------------
 
@@ -26,6 +32,9 @@ up:
 down:
   docker compose down
 
+status:
+  docker compose ps
+
 # Rebuild service containers (use after changing docker-compose.yaml or Dockerfile)
 rebuild:
   docker compose build --no-cache
@@ -36,23 +45,23 @@ rebuild:
 
 # Install packages from requirements.txt
 install:
-  docker compose exec {{CONTAINER}} micromamba run -n {{ENV_NAME}} pip install -r requirements.txt
+  docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip install -r requirements.txt
 
 # Upgrade packages from requirements.txt
 upgrade:
-  docker compose exec {{CONTAINER}} micromamba run -n {{ENV_NAME}} pip install --upgrade --no-cache-dir -r requirements.txt
+  docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip install --upgrade --no-cache-dir -r requirements.txt
 
 # Save current environment to requirements.txt
 freeze:
-  docker compose exec {{CONTAINER}} bash -c "micromamba run -n {{ENV_NAME}} pip freeze > /workspace/requirements.txt"
+  docker compose exec {{CONTAINER}} bash -c "micromamba run -n {{PY_ENV_NAME}} pip list --format=freeze > /workspace/requirements.txt"
 
 # Show pip-installed packages
 show-pip-deps:
-  docker compose exec {{CONTAINER}} micromamba run -n {{ENV_NAME}} pip list
+  docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip list
 
 # Show conda-installed packages
 show-conda-deps:
-  docker compose exec {{CONTAINER}} micromamba list -n {{ENV_NAME}}
+  docker compose exec {{CONTAINER}} micromamba list -n {{PY_ENV_NAME}}
 
 # Show all installed packages (pip + conda)
 show-deps:
@@ -62,13 +71,13 @@ show-deps:
 # Save full environment snapshot (conda + pip)
 snapshot:
   @echo "📦 Saving environment snapshot..."
-  docker compose exec {{CONTAINER}} bash -c "micromamba list -n {{ENV_NAME}} > /workspace/conda-list.txt"
-  docker compose exec {{CONTAINER}} bash -c "micromamba run -n {{ENV_NAME}} pip freeze > /workspace/pip-freeze.txt"
+  docker compose exec {{CONTAINER}} bash -c "micromamba list -n {{PY_ENV_NAME}} > /workspace/conda-list.txt"
+  docker compose exec {{CONTAINER}} bash -c "micromamba run -n {{PY_ENV_NAME}} pip freeze > /workspace/pip-freeze.txt"
   @echo "✅ Saved to conda-list.txt and pip-freeze.txt"
 
 # Start a Jupyter Lab server
 jupyter:
-  docker compose exec {{CONTAINER}} micromamba run -n {{ENV_NAME}} jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+  docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
 
 # Shell into the container
 shell:
@@ -84,10 +93,11 @@ help:
   @echo "=========================================="
   @echo "  just up                  # Start the container"
   @echo "  just down                # Stop the container"
+  @echo "  just status              # Show container status"
   @echo "  just rebuild             # Rebuild the container"
-  @echo "  just install             # Install deps from requirements.txt"
-  @echo "  just upgrade             # Upgrade deps"
   @echo "  just freeze              # Freeze deps to requirements.txt"
+  @echo "  just install             # Install deps from requirements.txt"
+  @echo "  just upgrade             # Upgrade deps from requirements.txt"
   @echo "  just show-pip-deps       # Show pip-installed packages"
   @echo "  just show-conda-deps     # Show conda-installed packages"
   @echo "  just show-deps           # Show all installed packages (pip + conda)"
@@ -95,3 +105,5 @@ help:
   @echo "  just jupyter             # Start Jupyter Lab"
   @echo "  just shell               # Bash shell in dev container"
   @echo "  just show-env            # Show environment variables"
+  @echo "  just init-env            # Initialize .env from .env.example"
+  @echo "  just help                # Show this help"

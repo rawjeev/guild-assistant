@@ -1,6 +1,8 @@
+
 services:
-  dev:
-    image: rawjeev/ai-thin-crust:2025-06a
+  guild-assistant-dev:
+    image: rawjeev/ai-thin-crust:${DOCKER_TAG}
+    container_name: ${CONTAINER_NAME}
     volumes:
       - .:/workspace
       - pydeps:/opt/conda
@@ -8,6 +10,10 @@ services:
     stdin_open: true
     tty: true
     command: bash
+    ports:
+      - "8888:8888"  # Jupyter Lab port
+      - "6006:6006"  # TensorBoard port
+      - "7860:7860"  # Gradio port
 
 volumes:
   pydeps:
