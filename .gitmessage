@@ -1,20 +1,32 @@
+# Commit Message Template
+# -------------------------------------------------------------------
 # <type>(<scope>): <summary>
-# Example: feat(auth): support magic link login
-
-# Write a short, imperative summary of the change in present tense.
-# Use one of the following types:
-#   feat    - new feature
-#   fix     - bug fix
-#   docs    - documentation only
-#   style   - formatting, missing semi colons, etc; no code change
-#   refactor- code change that neither fixes a bug nor adds a feature
-#   perf    - performance improvements
-#   test    - adding or fixing tests
-#   chore   - maintenance, tooling, dependencies, setup
-
-# <details> (optional)
-# - Explain the motivation and context
-# - List changes or decisions
-# - Mention breaking changes if any
-
-# Refs: #issue-number (optional)
+#
+# [Details]
+# - Motivation and context
+# - Changes or decisions
+# - Breaking changes, if any
+#
+# [Refs: #issue-number]
+#
+# Examples:
+# -------------------------------------------------------------------
+# feat(auth): support magic link login
+# fix(auth): check token expiry before redirect
+#
+# Commit Types:
+# -------------------------------------------------------------------
+# feat     - new feature
+# fix      - bug fix
+# docs     - documentation only
+# style    - formatting, white-space, etc — no code change
+# refactor - code restructure, no behavior change
+# perf     - performance improvement
+# test     - adding or fixing tests
+# chore    - maintenance, tooling, setup, dependencies
+#
+# Guidelines:
+# 1. Write a short, imperative summary in present tense.
+# 2. Use a clear scope to indicate the module or concern.
+# 3. Add detailed notes when helpful.
+# 4. Link issues using: Refs: #issue
