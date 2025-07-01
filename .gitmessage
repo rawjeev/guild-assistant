@@ -1,0 +1,20 @@
+# <type>(<scope>): <summary>
+# Example: feat(auth): support magic link login
+
+# Write a short, imperative summary of the change in present tense.
+# Use one of the following types:
+#   feat    - new feature
+#   fix     - bug fix
+#   docs    - documentation only
+#   style   - formatting, missing semi colons, etc; no code change
+#   refactor- code change that neither fixes a bug nor adds a feature
+#   perf    - performance improvements
+#   test    - adding or fixing tests
+#   chore   - maintenance, tooling, dependencies, setup
+
+# <details> (optional)
+# - Explain the motivation and context
+# - List changes or decisions
+# - Mention breaking changes if any
+
+# Refs: #issue-number (optional)
