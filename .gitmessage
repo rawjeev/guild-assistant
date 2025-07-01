@@ -11,8 +11,9 @@
 #
 # Examples:
 # -------------------------------------------------------------------
-# feat(auth): support magic link login
-# fix(auth): check token expiry before redirect
+# feat(ui): support chat
+# fix(security): check token expiry before redirect
+# chore(scripts): add just script for common dev tasks
 #
 # Commit Types:
 # -------------------------------------------------------------------
@@ -25,7 +26,14 @@
 # test     - adding or fixing tests
 # chore    - maintenance, tooling, setup, dependencies
 #
+# Commit Scopes:
+# -------------------------------------------------------------------
+# Domain     → api, cli, ui, db, model, agent, data, security
+# System     → env, build, ci, platform, scripts, lint, deps, release
+# Project    → meta (README, LICENSE, .gitmessage etc.)
+#
 # Guidelines:
+# -------------------------------------------------------------------
 # 1. Write a short, imperative summary in present tense.
 # 2. Use a clear scope to indicate the module or concern.
 # 3. Add detailed notes when helpful.
