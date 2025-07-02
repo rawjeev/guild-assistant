@@ -1,0 +1,1 @@
+# guild_assistant: Main package for the Guild Assistant project.

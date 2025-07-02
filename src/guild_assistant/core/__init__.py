@@ -1,0 +1,1 @@
+# Core logic for the assistant: engine, memory, routing, and orchestration.

@@ -1,0 +1,1 @@
+# Agents: Distinct assistant personalities or roles (e.g., facilitator, critic).
