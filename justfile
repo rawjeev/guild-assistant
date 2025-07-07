@@ -16,7 +16,7 @@ default:
 
 # 📊 Print environment vars
 show-env:
-    env | grep -E 'PROJECT_NAME|DOCKER_TAG|CONTAINER_NAME|PY_ENV_NAME'
+    @env | grep -E 'PROJECT_NAME|DOCKER_TAG|CONTAINER_NAME|PY_ENV_NAME'
 
 # Justfile for guild-assistant
 
@@ -49,47 +49,47 @@ rebuild:
 
 # Install packages from requirements.txt
 install:
-    docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip install -r requirements.txt
+    @docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip install -r requirements.txt
 
 # Upgrade packages from requirements.txt
 upgrade:
-    docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip install --upgrade --no-cache-dir -r requirements.txt
+   @docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip install --upgrade --no-cache-dir -r requirements.txt
 
 # Save current environment to requirements.txt
 freeze:
-    docker compose exec {{CONTAINER}} bash -c "micromamba run -n {{PY_ENV_NAME}} pip list --format=freeze > /workspace/requirements.txt"
+    @docker compose exec {{CONTAINER}} bash -c "micromamba run -n {{PY_ENV_NAME}} pip list --format=freeze > /workspace/requirements.txt"
 
 # Show pip-installed packages
 show-pip-deps:
-    docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip list
+    @docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip list
 
 # Show conda-installed packages
 show-conda-deps:
-    docker compose exec {{CONTAINER}} micromamba list -n {{PY_ENV_NAME}}
+    @docker compose exec {{CONTAINER}} micromamba list -n {{PY_ENV_NAME}}
 
 # Show all installed packages (pip + conda)
 show-deps:
-    just show-conda-deps
-    just show-pip-deps
+    @just show-conda-deps
+    @just show-pip-deps
 
 # Save full environment snapshot (conda + pip)
 snapshot:
     @echo "📦 Saving environment snapshot..."
-    docker compose exec {{CONTAINER}} bash -c "micromamba list -n {{PY_ENV_NAME}} > /workspace/conda-list.txt"
-    docker compose exec {{CONTAINER}} bash -c "micromamba run -n {{PY_ENV_NAME}} pip freeze > /workspace/pip-freeze.txt"
+    @docker compose exec {{CONTAINER}} bash -c "micromamba list -n {{PY_ENV_NAME}} > /workspace/conda-list.txt"
+    @docker compose exec {{CONTAINER}} bash -c "micromamba run -n {{PY_ENV_NAME}} pip freeze > /workspace/pip-freeze.txt"
     @echo "✅ Saved to conda-list.txt and pip-freeze.txt"
 
 # Start a Jupyter Lab server
 jupyter:
-    docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+    @docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
 
 # Shell into the container
 shell:
-    docker compose exec {{CONTAINER}} bash
+    @docker compose exec {{CONTAINER}} bash
 
 # Run a command in the dev container
 exec-in-dev CMD:
-    docker compose exec {{CONTAINER}} bash -ic '{{CMD}}'
+    @docker compose exec {{CONTAINER}} bash -ic '{{CMD}}'
         
 # ---------------------------------------------
 # Dev Helper Tasks
@@ -109,11 +109,15 @@ scaffold *dirs:
 
 # Lint code with ruff
 lint:
-	just exec-in-dev "ruff check /workspace/src /workspace/tests"
+	@just exec-in-dev "ruff check /workspace/src /workspace/tests"
 
 # Auto-fix code style issues
 format:
-	just exec-in-dev "ruff format /workspace/src /workspace/tests"
+	@just exec-in-dev "ruff format /workspace/src /workspace/tests"
+
+# Run tests using pytest
+test:
+    @docker compose exec {{CONTAINER}} bash -ic "PYTHONPATH=src pytest tests" || if [ $? -ne 5 ]; then echo "No Tests to run!"; exit 0; fi
 
 # -------------------------------------------
 # ℹ️ Help
@@ -136,10 +140,12 @@ help:
     @echo "  just snapshot            # Save full environment snapshot"
     @echo "  just jupyter             # Start Jupyter Lab"
     @echo "  just shell               # Bash shell in dev container"
+    @echo "  just exec-in-dev CMD     # Run a command in the dev container"
     @echo "  just show-env            # Show environment variables"
     @echo "  just init-env            # Initialize .env from .env.example"
     @echo "  just scaffold *dirs      # Scaffold multiple directories with __init__.py and README.md"
     @echo "  just lint                # Lint code with ruff"
     @echo "  just format              # Auto-fix code style issues"
+    @echo "  just test                # Run tests using pytest"
     @echo "  just help                # Show this help"
     
