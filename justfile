@@ -87,6 +87,10 @@ jupyter:
 shell:
     docker compose exec {{CONTAINER}} bash
 
+# Run a command in the dev container
+exec-in-dev CMD:
+    docker compose exec {{CONTAINER}} bash -ic '{{CMD}}'
+        
 # ---------------------------------------------
 # Dev Helper Tasks
 # ---------------------------------------------
@@ -98,7 +102,19 @@ scaffold *dirs:
         touch "$dir/__init__.py" && \
         [ -f "$dir/README.md" ] || echo "# $dir" > "$dir/README.md"; \
     done
-    
+
+# ==========================================
+# 🧪 Linting, Formatting, Testing, Running
+# ==========================================
+
+# Lint code with ruff
+lint:
+	just exec-in-dev "ruff check /workspace/src /workspace/tests"
+
+# Auto-fix code style issues
+format:
+	just exec-in-dev "ruff format /workspace/src /workspace/tests"
+
 # -------------------------------------------
 # ℹ️ Help
 # ---------------------------------------------
@@ -123,4 +139,7 @@ help:
     @echo "  just show-env            # Show environment variables"
     @echo "  just init-env            # Initialize .env from .env.example"
     @echo "  just scaffold *dirs      # Scaffold multiple directories with __init__.py and README.md"
+    @echo "  just lint                # Lint code with ruff"
+    @echo "  just format              # Auto-fix code style issues"
     @echo "  just help                # Show this help"
+    
