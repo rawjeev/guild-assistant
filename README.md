@@ -10,7 +10,7 @@
 
 ## Project Description
 
-A tool that helps design native plant guilds for ecological restoration, agroforestry, and permaculture. It combines **LLMs**, **RAG (Retrieval-Augmented Generation)**, **Semantic Web Knowledge Graphs**, and **ML-based recommendations** — built with modern AI engineering patterns to reason about combinations of flora and fauna for specific ecoregions, climates, and goals.
+A tool that helps design native plant guilds for ecological restoration, agroforestry, and permaculture. It combines **LLMs**, **RAG (Retrieval-Augmented Generation)**, **Semantic Web Knowledge Graphs**, and **ML-based recommendations** to reason about combinations of flora and fauna for specific ecoregions, climates, and goals.
 
 ## Motivation
 
