@@ -7,18 +7,31 @@ langchain
 langgraph
 langchainhub
 langchain-openai
-chromadb
-weaviate-client
 
-# === LLM & Model Ecosystem ===
+# === Vector / Similarity (Optional) ===
+chromadb         # Optional, for future RAG with LangChain
+weaviate-client  # Optional, if exploring external vector search
+faiss-cpu        # In-memory fast similarity search (kept in base)
+
+# === LLM & Fine-Tuning Ecosystem ===
+transformers
 peft
 bitsandbytes
 
+# === 🧩 Data Modeling & API ===
+pydantic
+fastapi
+python-dotenv
+
 # === Dev Tools ===
+pip-tools
 pytest
 ruff
-typer[all]
+typer
 
-# === LSP ===
+# === Language Server Protocol ===
 python-lsp-server[all]
 python-lsp-jsonrpc
+
+# === Future Add-Back ===
+# crewai               → when multi-agent orchestration is needed

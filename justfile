@@ -55,6 +55,10 @@ install:
 upgrade:
    @docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip install --upgrade --no-cache-dir -r requirements.txt
 
+# Compile requirements.txt from requirements.in
+compile:
+    @docker compose exec {{CONTAINER}} micromamba run -n {{PY_ENV_NAME}} pip-compile /workspace/requirements.in --output-file=/workspace/requirements.txt
+
 # Save current environment to requirements.txt
 freeze:
     @docker compose exec {{CONTAINER}} bash -c "micromamba run -n {{PY_ENV_NAME}} pip list --format=freeze > /workspace/requirements.txt"
@@ -131,6 +135,7 @@ help:
     @echo "  just down                # Stop the container"
     @echo "  just status              # Show container status"
     @echo "  just rebuild             # Rebuild the container"
+    @echo "  just compile             # Compile requirements.txt from requirements.in"
     @echo "  just freeze              # Freeze deps to requirements.txt"
     @echo "  just install             # Install deps from requirements.txt"
     @echo "  just upgrade             # Upgrade deps from requirements.txt"
