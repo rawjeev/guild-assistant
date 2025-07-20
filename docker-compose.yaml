@@ -1,5 +1,6 @@
 
 services:
+
   guild-assistant-dev:
     image: rawjeev/ai-thin-crust:${DOCKER_TAG}
     container_name: ${CONTAINER_NAME}
@@ -9,11 +10,24 @@ services:
     working_dir: /workspace
     stdin_open: true
     tty: true
-    command: bash
     ports:
       - "8888:8888"  # Jupyter Lab port
       - "6006:6006"  # TensorBoard port
       - "7860:7860"  # Gradio port
 
+  arcadedb:
+    image: 'arcadedata/arcadedb:25.6.1'
+    ports:
+      - "2480:2480"
+      - "2424:2424"
+      - "27017:27017"
+    env_file:
+      - .env
+    environment:
+      - JAVA_TOOL_OPTIONS=${JAVA_TOOL_OPTIONS} #FIX ME: Remove this after finding a Fix for ArcadeDB not reading JAVA_TOOL_OPTIONS passed as secrets
+    volumes:
+      - 'arcadedb-data:/home/arcadedb/databases'
+
 volumes:
   pydeps:
+  arcadedb-data:

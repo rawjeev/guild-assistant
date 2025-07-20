@@ -4,6 +4,7 @@
   "service": "guild-assistant-dev",
   "workspaceFolder": "/workspace",
   "remoteUser": "mambauser",
+  "forwardPorts": [8888],
   "postCreateCommand": "pip install --upgrade --no-cache-dir -r requirements.txt",
   "customizations": {
     "vscode": {
