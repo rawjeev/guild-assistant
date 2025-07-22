@@ -1,0 +1,54 @@
+{
+  "@type": "Species",
+  "scientific_name": "Pantala flavescens",
+  "common_names": {
+    "en": "Globe Skimmer",
+    "hi": "ग्लोब स्किमर ड्रैगनफ्लाई"
+  },
+  "synonyms": [
+    "Libellula flavescens"
+  ],
+  "taxon_rank": "species",
+  "taxon_id": "GBIF:1428207",
+
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "class": "Insecta",
+  "order": "Odonata",
+  "family": "Libellulidae",
+  "genus": "Pantala",
+  "life_form": "aquatic_insect",
+
+  "morphology": {
+    "body_length_mm": 44,
+    "wing_span_mm": 80,
+    "coloration": "golden yellow with transparent wings"
+  },
+
+  "phenology": {
+    "breeding_season": ["monsoon"],
+    "migration_pattern": "transoceanic, long-distance"
+  },
+
+  "functions": {
+    "trophic_role": "predator",
+    "guild_roles": ["aerial_hunter", "mosquito_controller"],
+    "ecological_services": ["pest_control", "biodiversity_indicator"]
+  },
+
+  "ecological_preferences": {
+    "temperature_celsius": { "min": 20, "max": 35 },
+    "altitude_meters": { "min": 0, "max": 2000 },
+    "water_bodies": ["ponds", "wetlands", "temporary pools"],
+    "habitat_type": ["freshwater wetlands", "grasslands"]
+  },
+
+  "phenological_triggers": {
+    "breeding": {
+      "rainfall_threshold_mm": 50,
+      "season": ["monsoon"]
+    }
+  },
+
+  "native_to": ["Tropical Asia", "Africa", "Americas", "Oceania"]
+}

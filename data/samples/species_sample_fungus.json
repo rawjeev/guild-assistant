@@ -1,0 +1,44 @@
+{
+  "scientific_name": "Ganoderma lucidum",
+  "common_names": {
+    "en": "Reishi Mushroom",
+    "ja": "霊芝"
+  },
+  "synonyms": ["Polyporus lucidus", "Lacquered Bracket"],
+  "taxon_rank": "species",
+  "taxon_id": "GBIF:2524268",
+  "kingdom": "Fungi",
+  "phylum": "Basidiomycota",
+  "class": "Agaricomycetes",
+  "order": "Polyporales",
+  "family": "Ganodermataceae",
+  "genus": "Ganoderma",
+  "life_form": "fungus",
+  "morphology": {
+    "cap_shape": "kidney-shaped",
+    "color": "reddish-brown",
+    "fruiting_body_diameter_cm": 20
+  },
+  "phenology": {
+    "fruiting": "monsoon"
+  },
+  "functions": {
+    "trophic_role": "saprotroph",
+    "guild_roles": ["decomposer"],
+    "ecological_services": ["nutrient_cycling", "wood_decay"]
+  },
+  "ecological_preferences": {
+    "temperature_celsius": { "min": 18, "max": 32 },
+    "altitude_meters": { "min": 0, "max": 1800 },
+    "soil_ph": { "min": 5.5, "max": 6.5 },
+    "soil_type": ["woody_debris"],
+    "soil_drainage": ["moist"]
+  },
+  "phenological_triggers": {
+    "fruiting": {
+      "humidity": "high",
+      "season": ["monsoon"]
+    }
+  },
+  "native_to": ["Tropical Asia", "Temperate Asia", "East Africa"]
+}

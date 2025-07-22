@@ -1,0 +1,43 @@
+{
+  "@type": "Species",
+  "scientific_name": "Apis cerana",
+  "common_names": {
+    "en": "Asian Honey Bee",
+    "hi": "भारतीय मधुमक्खी"
+  },
+  "synonyms": ["Apis indica"],
+  "taxon_rank": "species",
+  "taxon_id": "GBIF:1346340",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "class": "Insecta",
+  "order": "Hymenoptera",
+  "family": "Apidae",
+  "genus": "Apis",
+  "life_form": "insect",
+  "morphology": {
+    "body_length_mm": 10,
+    "wing_type": "membranous",
+    "coloration": "yellow_black_stripes"
+  },
+  "phenology": {
+    "breeding": "year_round_in_tropics",
+    "activity": "diurnal"
+  },
+  "functions": {
+    "trophic_role": "nectarivore",
+    "guild_roles": ["pollinator"],
+    "ecological_services": ["pollination"]
+  },
+  "ecological_preferences": {
+    "temperature_celsius": { "min": 18, "max": 35 },
+    "altitude_meters": { "min": 0, "max": 2500 }
+  },
+  "phenological_triggers": {
+    "breeding": {
+      "temperature_range_celsius": { "min": 20, "max": 32 },
+      "daylength": ">=11h"
+    }
+  },
+  "native_to": ["Indian Subcontinent", "Southeast Asia"]
+}

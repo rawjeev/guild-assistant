@@ -1,0 +1,61 @@
+{
+  "scientific_name": "Azadirachta indica",
+  "common_names": {
+    "en": "Neem",
+    "hi": "नीम",
+    "kn": "ಬೆವು",
+    "ta": "வேப்ப மரம்",
+    "te": "నిమ్మ"
+  },
+  "synonyms": [
+    "Melia azadirachta"
+  ],
+  "taxon_rank": "species",
+  "taxon_id": "gbif:2877585",
+  "kingdom": "Plantae",
+  "phylum": "Tracheophyta",
+  "class": "Magnoliopsida",
+  "order": "Sapindales",
+  "family": "Meliaceae",
+  "genus": "Azadirachta",
+  "life_form": "tree",
+  "morphology": {
+    "leaf_type": "pinnate",
+    "leaf_arrangement": "alternate",
+    "bark_type": "rough",
+    "height_m": 20
+  },
+  "phenology": {
+    "flowering_season": ["March", "April"],
+    "fruiting_season": ["May", "June"],
+    "leaf_shedding": "dry_season"
+  },
+  "functions": {
+    "trophic_role": "producer",
+    "guild_roles": ["canopy", "shade_provider"],
+    "ecological_services": ["pest_repellent", "soil_enricher", "carbon_sequestration"]
+  },
+  "ecological_preferences": {
+    "temperature_celsius": { "min": 15, "max": 45 },
+    "altitude_meters": { "min": 0, "max": 1500 },
+    "soil_ph": { "min": 6.0, "max": 8.0 },
+    "soil_type": ["loamy", "sandy"],
+    "soil_drainage": ["well_drained"]
+  },
+  "phenological_triggers": {
+    "flowering": {
+      "temperature_range_celsius": { "min": 20, "max": 30 },
+      "daylength": ">=11h",
+      "season": ["spring"]
+    },
+    "fruiting": {
+      "after_flowering_days": 60,
+      "temperature_range_celsius": { "min": 25, "max": 40 }
+    }
+  },
+  "native_to": [
+    "Indomalayan",
+    "South Deccan Plateau",
+    "Western Ghats Dry Regions"
+  ]
+}

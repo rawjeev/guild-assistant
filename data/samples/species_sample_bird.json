@@ -1,0 +1,45 @@
+{
+  "@type": "Species",
+  "scientific_name": "Pycnonotus cafer",
+  "common_names": {
+    "en": "Red-vented Bulbul",
+    "hi": "काली बुलबुल"
+  },
+  "synonyms": [],
+  "taxon_rank": "species",
+  "taxon_id": "GBIF:2490700",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Aves",
+  "order": "Passeriformes",
+  "family": "Pycnonotidae",
+  "genus": "Pycnonotus",
+  "life_form": "bird",
+  "morphology": {
+    "body_length_cm": 20,
+    "plumage_color": "black, brown with red vent",
+    "beak_type": "short_conical"
+  },
+  "phenology": {
+    "breeding": "spring_summer",
+    "molting": "post_breeding"
+  },
+  "functions": {
+    "trophic_role": "omnivore",
+    "guild_roles": ["canopy_dweller", "seed_distributor"],
+    "ecological_services": ["pollination", "pest_control"]
+  },
+  "ecological_preferences": {
+    "temperature_celsius": { "min": 15, "max": 40 },
+    "altitude_meters": { "min": 0, "max": 1800 },
+    "soil_type": ["irrelevant"],
+    "soil_drainage": ["irrelevant"]
+  },
+  "phenological_triggers": {
+    "breeding": {
+      "daylength": ">=12h",
+      "season": ["spring"]
+    }
+  },
+  "native_to": ["Indian Subcontinent", "Sri Lanka"]
+}
