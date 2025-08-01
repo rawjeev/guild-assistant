@@ -108,8 +108,5 @@ CREATE PROPERTY PrefersCondition.strength FLOAT;        -- e.g., 0.8 (scale of 0
 CREATE PROPERTY PrefersCondition.since DATE;            -- Optional: when the preference was established
 CREATE PROPERTY PrefersCondition.notes STRING;        -- Optional: additional notes about the preference
 
-CREATE EDGE TYPE ThrivesInSoil IF NOT EXISTS;           -- Species → SoilType
-CREATE EDGE TYPE NeedsSunlight IF NOT EXISTS;           -- Species → Sunlight
-CREATE EDGE TYPE NeedsMoisture IF NOT EXISTS;           -- Species → Moisture
 CREATE EDGE TYPE HasEcosystemRole IF NOT EXISTS;        -- Species → EcosystemRole
 CREATE EDGE TYPE InteractsWith IF NOT EXISTS;           -- Species → Interaction (→ Species or Environment)
