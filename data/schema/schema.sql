@@ -96,17 +96,28 @@ CREATE PROPERTY EcosystemRole.role STRING;       -- e.g., 'primary producer', 'h
 CREATE PROPERTY EcosystemRole.is_primary BOOLEAN; -- e.g., true for primary ecological function, false for secondary e.g., 'Nitrogen Fixer', 'Pollinator'
 CREATE PROPERTY EcosystemRole.description STRING; -- e.g., 'Organisms that produce energy through photosynthesis'
 
+
+-- 🌱 Trait & Use
+CREATE VERTEX TYPE Trait IF NOT EXISTS;
+CREATE VERTEX TYPE Use IF NOT EXISTS;
+
+
 -- === EDGE CLASSES ===
 
-CREATE EDGE TYPE SpeciesInEcoregion IF NOT EXISTS;
-CREATE PROPERTY SpeciesInEcoregion.relationship STRING;  -- 'endemic', 'native', 'invasive', 'exotic', 'naturalized', 'introduced', 'occurs', 'extinct'
-CREATE PROPERTY SpeciesInEcoregion.notes STRING;         -- Optional: reasoning, sources, remarks
-CREATE PROPERTY SpeciesInEcoregion.since DATE;           -- Optional: when the status began (intro date, etc.)
+CREATE EDGE TYPE Presence IF NOT EXISTS;
+CREATE PROPERTY Presence.status STRING;         -- 'endemic', 'native', 'invasive', 'exotic', 'naturalized', 'introduced', 'occurs', 'extinct'
+CREATE PROPERTY Presence.since DATE;            -- Optional: when the status began (intro date, etc.)
+CREATE PROPERTY Presence.notes STRING;          -- Optional: reasoning, sources, remarks
 
-CREATE EDGE TYPE PrefersCondition IF NOT EXISTS;        -- Species → EnvironmentalCondition
-CREATE PROPERTY PrefersCondition.strength FLOAT;        -- e.g., 0.8 (scale of 0 to 1)
-CREATE PROPERTY PrefersCondition.since DATE;            -- Optional: when the preference was established
-CREATE PROPERTY PrefersCondition.notes STRING;        -- Optional: additional notes about the preference
+
+CREATE EDGE TYPE Prefers IF NOT EXISTS;        -- Species → EnvironmentalCondition
+CREATE PROPERTY Prefers.strength FLOAT;        -- e.g., 0.8 (scale of 0 to 1)
+CREATE PROPERTY Prefers.since DATE;            -- Optional: when the preference was established
+CREATE PROPERTY Prefers.notes STRING;        -- Optional: additional notes about the preference
 
 CREATE EDGE TYPE HasEcosystemRole IF NOT EXISTS;        -- Species → EcosystemRole
 CREATE EDGE TYPE InteractsWith IF NOT EXISTS;           -- Species → Interaction (→ Species or Environment)
+
+CREATE EDGE TYPE HasTrait IF NOT EXISTS;        -- Species → Trait
+CREATE EDGE TYPE HasUse IF NOT EXISTS;            -- Species → Use
+
