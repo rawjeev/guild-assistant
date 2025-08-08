@@ -24,6 +24,7 @@ fastapi                   # For building APIs
 httpx                     # For interacting with ArcadeDB REST API
 pygbif                    # For fetching taxonomic and occurrence data from GBIF
 python-dotenv             # For environment variable management
+geopandas                 # For geospatial data handling
 
 # === (Optional but Recommended Developer Tools) ===
 tenacity                   # Retry logic for robust HTTP calls

@@ -5,7 +5,6 @@ import traceback
 import httpx
 import pandas as pd
 import typer
-from typing import Optional
 from tenacity import retry, stop_after_attempt, wait_fixed
 
 app = typer.Typer()
