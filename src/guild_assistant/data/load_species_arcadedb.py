@@ -11,16 +11,16 @@ app = typer.Typer()
 
 ARCADEDB_HOST = "arcadedb"
 ARCADEDB_BASE_URL = f"http://{ARCADEDB_HOST}:2480"  # Update if needed
-ARCADEDB_DB = "guild_assistant-db"
-ARCADEDB_USER = os.getenv("ARCADEDB_USER", "root")
-ARCADEDB_PASSWORD = os.getenv("ARCADEDB_PASSWORD", "root")
+DB_NAME = os.getenv("DB_NAME", "guild_assistant-db")
+DB_USER_NAME = os.getenv("DB_USER_NAME", "root")
+DB_USER_PASSWORD = os.getenv("DB_USER_PASSWORD", "root")
 
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(1))
 def insert_species(client: httpx.Client, record: dict) -> bool:    
     """
     Insert a species vertex into ArcadeDB using the SQL endpoint.
     """
-    url = f"{ARCADEDB_BASE_URL}/api/v1/command/{ARCADEDB_DB}"
+    url = f"{ARCADEDB_BASE_URL}/api/v1/command/{DB_NAME}"
     headers = {"Content-Type": "application/json"}
     
     command = """
@@ -80,7 +80,7 @@ def load(csv_path: str = typer.Argument("species_data.csv", help="CSV file with 
     df = pd.read_csv(csv_path)
     typer.secho(f"📄 Loading {len(df)} species from {csv_path}", fg=typer.colors.CYAN)
 
-    with httpx.Client(auth=(ARCADEDB_USER, ARCADEDB_PASSWORD)) as client:
+    with httpx.Client(auth=(DB_USER_NAME, DB_USER_PASSWORD)) as client:
         for _, row in df.iterrows():
             species_data = {
                 "scientific_name": row.get("scientific_name") or row.get("input_name"),
